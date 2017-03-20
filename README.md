@@ -1,8 +1,8 @@
-# Project: Traffic Sign Classification
+# Project: Traffic Sign Classifier
 This project is part of Udacity Self-Driving Car Engineer Nanodegree program. Tools, techniques and knowledge learned in class about deep neural networks and convolutional neural networks were used to classify traffic signs.
 
 ### Overview
-In this project, deep neural networks and convolutional neural networks were used to classify traffic signs. The dataset to train are traffic sign imgaes from the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). 
+In this project, ConvNet architecture is used instead of a simple Feed Forward Network to classify traffic signs. The dataset to train are traffic sign imgaes from the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). 
 
 ### Dependencies
 This project requires **Python 3.5** and the following Python libraries installed:
@@ -30,4 +30,10 @@ git clone https://github.com/cuevas1208/Traffic-Sign-Recognition
 cd Traffic-Sign-Recognition
 jupyter notebook Traffic_Signs_Recognition.ipynb
 ```
+
+### To Improve or Issues
+The module is overfitting for the next version add Drop Out Layers. Drop Out Layers forced to learn a redundant representation of the model and also prevents over fitting.
+Network.
+Add a pre-processing technique like adding brightness augmentation.
+
 
