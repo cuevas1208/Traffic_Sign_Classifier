@@ -32,8 +32,13 @@ jupyter notebook Traffic_Signs_Recognition.ipynb
 ```
 
 ### To Improve or Issues
-The module is overfitting for the next version add Drop Out Layers. Drop Out Layers forced to learn a redundant representation of the model and also prevents over fitting.
-Network.
-Add a pre-processing technique like adding brightness augmentation.
+Visualizing the model architecture using TensorBoard.
+
+Instead of a fixed number of epochs, implemente an early termination, as overtraining can lead to overfitting. 
+
+Rebalance the number of examples for each class. This has the potential to improve your results here.
+
+### Additional sources
+To learn more about convolutional networks I recommend this [book](http://www.deeplearningbook.org/contents/convnets.html)
 
 
