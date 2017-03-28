@@ -1,17 +1,26 @@
-#Majority of the function were borrow from Udacity CAR-nanodegree program and were adapted to me this project. 
-
+## File: helper_Functions.py
+## Name: Manuel Cuevas
+## Date: 01/14/2017
+## Project: CarND - LaneLines
+## Desc: This is a document to add all functions that are not related to the model
+##       but helpful to document or visualize data
+## This project was part of the CarND program.
+## Tools learned in class were used to identify lane lines on the road.
+## Revision: Rev 0000.004
+#####################################################################################
+#importing useful packages
 import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+from sklearn.utils import shuffle
+from numpy.random import normal, uniform
 import numpy as np
-import glob
-import time
-import pickle
-from sklearn.svm import LinearSVC
-from sklearn.preprocessing import StandardScaler
-from sklearn.model_selection import train_test_split
-from scipy.ndimage import zoom
 
-## Prints two images to compare input and output of a fucntion 
+"""printImg
+Prints two images to compare input and output of a function
+Input: img1,img2 - input images to display
+       img1_title, img2_title - headers for image one and two
+Returns: None                                                            """
 def printImg(img1, img2, img1_title = 'Input Image', img2_title = 'Output Image'):
     f, (ax1, ax2) = plt.subplots(1, 2, figsize=(24, 9))
     f.tight_layout()
@@ -21,52 +30,34 @@ def printImg(img1, img2, img1_title = 'Input Image', img2_title = 'Output Image'
     ax2.set_title(img2_title, fontsize=50)
     plt.subplots_adjust(left=0., right=1, top=0.9, bottom=0.)
 
-import numpy as np
-from scipy.ndimage import zoom
-def clipped_zoom(img, zoom_factor, **kwargs):
+"""dataSetInfo
+Outout general information about the deta set, and displays a graph with the data distibution
+Input: X_train, y_train, X_test, y_test, X_valid, y_valid - Images and Labels for each data set
+Returns: None                                                            """    
+def dataSetInfo(X_train, y_train, X_test, y_test, X_valid, y_valid):
+    n_train = len(X_train)
+    n_test = len(X_test)
+    image_shape = str(format(X_train[0].shape))
+    classes, counts = np.unique(y_train, return_counts = True)
+    n_classes = len(classes)
 
-    h, w = img.shape[:2]
+    print("Image Shape: {}".format(X_train[0].shape))
+    print("Number of training samples =", n_train)
+    print("Number of validation samples =", len(X_valid), (len(X_valid)*100)/n_train,"% of training data")
+    print("Number of testing samples =", n_test)
+    print("Image data shape =", image_shape)
+    print("Number of classes =", n_classes)
+    
+    #Visualize data set distribution
+    bins = n_classes
+    plt.hist(y_test, bins=bins, histtype='stepfilled', color='b', alpha=.5, label='Test')
+    plt.hist(y_train, bins=bins, histtype='stepfilled', color='r', alpha=.5, label='Training')
+    plt.hist(y_valid, bins=bins, histtype='stepfilled', color='g', alpha=.5, label='Validation')
 
-    # width and height of the zoomed image
-    zh = int(np.round(zoom_factor * h))
-    zw = int(np.round(zoom_factor * w))
+    plt.title("Labels Histogram")
+    plt.xlabel("Lable")
+    plt.ylabel("Quantity")
+    plt.axis([0, 43,  0, counts[0]+1000])
 
-    # for multichannel images we don't want to apply the zoom factor to the RGB
-    # dimension, so instead we create a tuple of zoom factors, one per array
-    # dimension, with 1's for any trailing dimensions after the width and height.
-    zoom_tuple = (zoom_factor,) * 2 + (1,) * (img.ndim - 2)
-
-    # zooming out
-    if zoom_factor < 1:
-        # bounding box of the clip region within the output array
-        top = (h - zh) // 2
-        left = (w - zw) // 2
-        # zero-padding
-        out = np.zeros_like(img)
-        out[top:top+zh, left:left+zw] = zoom(img, zoom_tuple, **kwargs)
-
-    # zooming in
-    elif zoom_factor > 1:
-        # bounding box of the clip region within the input array
-        top = (zh - h) // 2
-        left = (zw - w) // 2
-        out = zoom(img[top:top+zh, left:left+zw], zoom_tuple, **kwargs)
-        # `out` might still be slightly larger than `img` due to rounding, so
-        # trim off any extra pixels at the edges
-        trim_top = ((out.shape[0] - h) // 2)
-        trim_left = ((out.shape[1] - w) // 2)
-        out = out[trim_top:trim_top+h, trim_left:trim_left+w]
-
-    # if zoom_factor == 1, just return the input array
-    else:
-        out = img
-    return out
-
-
-from skimage import exposure
-# whitening
-
-def randomBrightness(x):
-    gamma = np.random.uniform(.4, 1.4)
-    x = exposure.adjust_gamma(x, gamma, 1)
-    return x
+    plt.legend()
+    plt.show()
