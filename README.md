@@ -28,13 +28,17 @@ git clone https://github.com/cuevas1208/Traffic-Sign-Recognition
 cd Traffic-Sign-Recognition
 jupyter notebook Traffic_Signs_Recognition.ipynb
 ```
+## Details About Files In This Directory
 
-### To Improve or Issues
-Visualizing the model architecture using TensorBoard.
+### `helper_Functions.py`
+                                                                                                                          
+### `main.ipynb`
 
-Instead of a fixed number of epochs, implemente an early termination, as overtraining can lead to overfitting. 
+### `model_architecture.py`
 
-Rebalance the number of examples for each class. This has the potential to improve your results here.
+### `model_calls.py`
+
+### `preprocess_augmentation.py`
 
 ### Additional sources
 To learn more about convolutional networks I recommend this [book](http://www.deeplearningbook.org/contents/convnets.html)
