@@ -1,6 +1,6 @@
 # Project: Traffic Sign Classifier
 ### Overview
-In this project uses a ConvNet architecture to classify traffic signs. The dataset to train are traffic sign imgaes from the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). 
+This project uses a ConvNet architecture to classify traffic signs. The dataset to train are traffic sign imgaes from the [German Traffic Sign Dataset](http://benchmark.ini.rub.de/?section=gtsrb&subsection=dataset). 
 
 ##### For more information about this project visit the [Wiki page](https://github.com/cuevas1208/Traffic_Sign_Classifier/wiki)
 
