@@ -4,6 +4,24 @@ This project uses a ConvNet architecture to classify traffic signs. The dataset 
 
 ##### For more information about this project visit the [Wiki page](https://github.com/cuevas1208/Traffic_Sign_Classifier/wiki)
 
+### Files Overview
+                                                                                                                          
+`model_architecture.py`
+
+Model architecture
+
+`model_calls.py`
+
+Functions to train and use the model
+
+`preprocess_augmentation.py`
+
+Split, balance and augmentation functions
+
+`helper_Functions.py`
+
+Functions to visualize data
+
 ### Dependencies
 This project requires **Python 3.5** and the following Python libraries installed:
 - [Jupyter](http://jupyter.org/)
@@ -28,23 +46,6 @@ git clone https://github.com/cuevas1208/Traffic-Sign-Recognition
 cd Traffic-Sign-Recognition
 python main.py
 ```
-## Details About Files In This Directory
-                                                                                                                          
-`model_architecture.py`
-
-Model architecture
-
-`model_calls.py`
-
-Functions to train and use the model
-
-`preprocess_augmentation.py`
-
-Split, balance and augmentation functions
-
-`helper_Functions.py`
-
-Functions to visualize data
 
 ### Additional sources
 This project is part of Udacity Self-Driving Car Engineer Nanodegree program. Tools, techniques and knowledge learned in class about deep neural networks and convolutional neural networks were used to classify traffic signs.
